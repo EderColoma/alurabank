@@ -114,3 +114,4 @@ Complete _package.json_ content after adding the script.
   }
 }
 ```
+Thos will enable the use of `npm start`, which will monitor the TypeScript files for change and compile them whenever a change os made.
