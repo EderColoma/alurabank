@@ -25,6 +25,66 @@ It will create a file called _package.json_, which contains information about th
   "license": "ISC"
 }
 ```
-2 - Add the typeScrpit depedecy.
-<br>
+2 - Add the TypeScrpit depedecy.
 #### `npm install typescript@2.3.2 --save-dev`
+It will insert a section to the _package.json_ file adding the TypeScript dependency.
+```json
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}
+```
+ps.: 2.3.2 was the latest version of TypeScript at th time of the course creation. It can be replaced by the current latest version.
+
+3 - Create the compilation configuration script.
+<br>
+A script containing the compilation configuration must be created, in this course it was called _tsconfig.json_.
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js"
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
+```
+
+4 - Add the compile configuration script to the _package.json_ file.
+```json
+"compile": "tsc"
+```
+
+The complete file content will be as following:
+```json
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}
+```
+This will enable the compilation to be made.
+<br>
+#### `npm run compile`
