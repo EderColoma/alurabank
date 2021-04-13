@@ -9,7 +9,7 @@ Website created during the course: <a href="https://cursos.alura.com.br/course/t
 <br>
 ## Things learned in this course:
 ### How to create a TypeScript application:
-1 - Initialize the application.
+#### 1 - Initialize the application.
 #### `npm init`
 It will create a file called _package.json_, which contains information about the application modules.
 ```json
@@ -25,7 +25,7 @@ It will create a file called _package.json_, which contains information about th
   "license": "ISC"
 }
 ```
-2 - Add the TypeScrpit depedecy.
+#### 2 - Add the TypeScrpit depedecy.
 #### `npm install typescript@2.3.2 --save-dev`
 It will insert a section to the _package.json_ file adding the TypeScript dependency.
 ```json
@@ -47,7 +47,7 @@ It will insert a section to the _package.json_ file adding the TypeScript depend
 ```
 ps.: 2.3.2 was the latest version of TypeScript at th time of the course creation. It can be replaced by the current latest version.
 
-3 - Create the compilation configuration script.
+#### 3 - Create the compilation configuration script.
 <br>
 A script containing the compilation configuration must be created, in this course it was called _tsconfig.json_.
 ```json
@@ -62,7 +62,7 @@ A script containing the compilation configuration must be created, in this cours
 }
 ```
 
-4 - Add the compile configuration script to the _package.json_ file.
+#### 4 - Add the compile configuration script to the _package.json_ file.
 ```json
 "compile": "tsc"
 ```
@@ -89,8 +89,7 @@ This will enable the compilation to be made.
 <br>
 #### `npm run compile`
 
-5 - Make the compilation of changed TypeScript automatic.
-<br>
+#### 5 - Make the compilation of changed TypeScript automatic.
 In order to make the compilation of changed TypeScript automatic, another script should be addes to the _package.json_ file.
 ```json
 "start": "tsc -w"
@@ -114,4 +113,20 @@ Complete _package.json_ content after adding the script.
   }
 }
 ```
-Thos will enable the use of `npm start`, which will monitor the TypeScript files for change and compile them whenever a change os made.
+
+This will enable the use of `npm start`, which will monitor the TypeScript files for change and compile them whenever a change os made.
+
+#### 6 - No Emit on Error
+It is recommended to configure the compiler to not generate JavaScript files when there are TypeScript compilation erros, we can achieve this by adding the directive `"noEmiteOnError"` to the compilation configuration file.
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js",
+        "noEmitOnError": true        
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
+```
