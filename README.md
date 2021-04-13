@@ -117,13 +117,29 @@ Complete _package.json_ content after adding the script.
 This will enable the use of `npm start`, which will monitor the TypeScript files for change and compile them whenever a change os made.
 
 #### 6 - No Emit on Error
-It is recommended to configure the compiler to not generate JavaScript files when there are TypeScript compilation erros, we can achieve this by adding the directive `"noEmiteOnError"` to the compilation configuration file.
+It is recommended to configure the compiler to not generate JavaScript files when there are TypeScript compilation erros, we can achieve this by adding the directive `"noEmiteOnError"` to the compilation configuration file (_tsconfig.json_).
 ```json
 {
     "compilerOptions": {
         "target": "es6",
         "outDir": "app/js",
         "noEmitOnError": true        
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
+```
+
+#### 7 - Force the definition of variables types
+By default, TypeScript considers all variable to be of the `any` type. This menas that the variable could be of any type. To avoid this we can force the definition of variable types by adding to the configuration `"noImplicitAny"` to the _tsconfig.json_ file.
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js",
+        "noEmitOnError": true,
+        "noImplicitAny": true
     },
     "include": [
         "app/ts/**/*"
