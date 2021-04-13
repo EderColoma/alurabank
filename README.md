@@ -88,3 +88,29 @@ The complete file content will be as following:
 This will enable the compilation to be made.
 <br>
 #### `npm run compile`
+
+5 - Make the compilation of changed TypeScript automatic.
+<br>
+In order to make the compilation of changed TypeScript automatic, another script should be addes to the _package.json_ file.
+```json
+"start": "tsc -w"
+```
+Complete _package.json_ content after adding the script.
+```json
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "start": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}
+```
