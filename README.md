@@ -7,6 +7,7 @@
 Website created during the course: <a href="https://cursos.alura.com.br/course/typescript-parte1" tagret="blank_">TypeScript parte 1: Evoluindo seu Javascript</a>.<br>
 <br>
 ## Useful things learned in this course:
+<br>
 ### How to create a TypeScript application:
 <br>
 1 - Initialize the application.
@@ -29,4 +30,5 @@ It will create a file called _package.json_, which contains information about th
 }
 ```
 2 - Add the typeScrpit depedecy.
-### `npm install typescript@2.3.2 --save-dev`
+<br>
+#### `npm install typescript@2.3.2 --save-dev`
