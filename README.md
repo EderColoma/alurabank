@@ -164,7 +164,7 @@ To avoid comments on to the .ts files to be added to the generated .js files, th
     ]
 }
 ```
-#### 9 - TypeScript Dfinition File
+#### 9 - TypeScript Definition File
 In order for the IDE to recognize the syntax of external libraries a file of the type tds (typescript definition file) must be added to the project. In this project JQuery was used and its tds file was added.
 
 #### `npm install @types/jquery@2.0.42 --save-dev`
