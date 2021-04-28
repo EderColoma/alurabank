@@ -147,3 +147,20 @@ By default, TypeScript considers all variable to be of the `any` type. This mena
     ]
 }
 ```
+
+#### 8 - Remove comments
+To avoid comments on to the .ts files to be added to the generated .js files, the option `removeComments` should be added to the _tsconfig.json_ file and set to _true_.
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "removeComments": true
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
+```
