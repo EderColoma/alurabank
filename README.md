@@ -168,3 +168,80 @@ To avoid comments on to the .ts files to be added to the generated .js files, th
 In order for the IDE to recognize the syntax of external libraries a file of the type tds (typescript definition file) must be added to the project. In this project JQuery was used and its tds file was added.
 
 #### `npm install @types/jquery@2.0.42 --save-dev`
+
+#### 10 - Module Loader
+When the application is structured in modules, a loader must be added to the _tsconfig.json_ file
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "module": "system"
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
+```
+
+#### 11 - Local Server
+The module loader uses XMLHttpRequest, so it needs to be run on a server.
+The server can be installed using the following instruction:
+
+#### `npm install lite-server@2.3.0 --save-dev`
+
+After installing the server we have to add a new option on the `package.json` file to run it.
+```json
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "start": "tsc -w",
+    "server": "lite-server --baseDir=app"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^2.0.42",
+    "lite-server": "^2.3.0",
+    "typescript": "^2.3.2"
+  }
+}
+```
+
+#### 12 - Concurrently
+Concurrently allow us to run mutilpe scripts in parallel, it can be installed by running:
+
+#### `npm install concurrently@3.4.0 --save-dev `
+
+After installing we can change the `package.json` file ro run the server and the compiler in parallel.
+```json
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "server": "lite-server --baseDir=app",
+    "start": "concurrently \"npm run watch\" \"npm run server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^2.0.42",
+    "concurrently": "^3.4.0",
+    "lite-server": "^2.3.0",
+    "typescript": "^2.3.2"
+  }
+}
+```
