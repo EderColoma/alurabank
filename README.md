@@ -245,3 +245,22 @@ After installing we can change the `package.json` file ro run the server and the
   }
 }
 ```
+#### 13 - Strict Null Checks
+`strictNullChecks` disallows the attribution of null and undefined values to variables, unless the variable is of the null type.
+
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js",
+        "noEmitOnError": true, 
+        "noImplicitAny": true,
+        "removeComments": true,
+        "module": "system",
+        "strictNullChecks": true
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
+```
